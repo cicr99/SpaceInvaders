@@ -1,0 +1,76 @@
+%ifndef SHOT_MAC
+%define SHOT_MAC
+
+%ifndef SHOT_ASM
+
+extern destroy_alien
+extern destroy_ship
+extern destroy_shots
+extern destroy_box
+extern destroy_eternal
+extern create_box
+extern create_shield
+extern create_shot
+extern create_ultrashot
+extern create_eternal_shot
+extern create_lethal_line
+
+%endif
+
+%macro DESTROY_ALIEN 6
+ push %1
+ push %2
+ push %3
+ push %4
+ push %5
+ push %6
+ call destroy_alien
+ add esp, 24
+%endmacro
+
+%macro DESTROY_SHIP 4
+ push %1
+ push %2
+ push %3
+ push %4
+ call destroy_ship
+ add esp, 16
+%endmacro
+
+%macro DESTROY_SHOTS 6
+ push %1
+ push %2
+ push %3
+ push %4
+ push %5
+ push %6
+ call destroy_shots
+ add esp, 24
+%endmacro
+
+%macro DESTROY_BOX 5
+ push %1
+ push %2
+ push %3
+ push %4
+ push %5
+ call destroy_box
+ add esp, 20
+%endmacro
+
+%macro CREATE_SHOT 4
+ push %1
+ push %2
+ push %3
+ push %4
+ call create_shot
+ add esp, 16
+%endmacro
+
+%macro CREATE_ESPECIAL_SHOTS 2
+ push %1
+ call %2
+ add esp, 4
+%endmacro
+
+%endif

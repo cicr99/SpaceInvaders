@@ -1,0 +1,17 @@
+%ifndef SOUND_MAC
+%define SOUND_MAC
+
+%ifndef SOUND_ASM
+extern make_sound
+%endif
+
+
+%macro MAKE_SOUND 3 ;word frecuencia, word tiempo, dword punt_timer
+push word %1
+push word %2
+push dword %3
+call make_sound
+add esp, 8
+%endmacro
+
+%endif

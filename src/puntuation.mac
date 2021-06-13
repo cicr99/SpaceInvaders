@@ -1,0 +1,26 @@
+%ifndef PUNTUATION_MAC
+%define PUNTUATION_MAC
+
+%ifndef PUNTUATION_ASM
+
+extern add_puntuation
+extern take_name
+
+%endif
+;1- new puntuation, 2- puntuations
+%macro ADD_PUNCTUATION 2
+push %1
+push %2
+call add_puntuation
+add esp, 8
+%endmacro
+
+;1- name, 2- keyboard letter
+%macro TAKE_NAME 2
+push dword %1
+push %2
+call take_name
+add esp, 6
+%endmacro
+
+%endif

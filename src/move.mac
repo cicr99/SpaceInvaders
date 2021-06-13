@@ -1,0 +1,94 @@
+%ifndef MOVE_MAC
+%define MOVE_MAC
+
+%ifndef MOVE_ASM
+
+extern move_up
+extern move_down
+extern move_left
+extern move_right
+extern move_up_cartel
+extern move_down_cartel
+extern change_direction
+extern move_diag_right_up
+extern move_diag_left_up
+extern move_shots
+extern move_object
+extern move_ultrashot
+
+%endif
+
+%macro MOVE_UP_CARTEL 1
+  push %1
+  call move_up_cartel
+  add esp, 4
+%endmacro
+
+%macro MOVE_DOWN_CARTEL 1
+  push %1
+  call move_down_cartel
+  add esp, 4
+%endmacro
+
+%macro MOVE_UP 1
+  push %1
+  call move_up
+  add esp, 4
+%endmacro
+
+%macro MOVE_DOWN 1
+  push %1
+  call move_down
+  add esp, 4
+%endmacro
+
+%macro MOVE_LEFT 1
+  push %1
+  call move_left
+  add esp, 4
+%endmacro
+
+%macro MOVE_RIGHT 1
+  push %1
+  call move_right
+  add esp, 4
+%endmacro
+
+%macro CHANGE_DIRECTION 1
+  push %1
+  call change_direction
+  add esp, 4
+%endmacro
+
+%macro MOVE_DIAG_RIGHT_UP 1
+  push %1
+  call move_diag_right_up
+  add esp, 4
+%endmacro
+
+%macro MOVE_DIAG_LEFT_UP 1
+  push %1
+  call move_diag_left_up
+  add esp, 4
+%endmacro
+
+%macro MOVE_SHOTS 2
+  push %1
+  push %2
+  call move_shots
+  add esp, 8
+%endmacro
+
+%macro MOVE_BOX 1
+  push %1
+  call move_object
+  add esp, 4
+%endmacro
+
+%macro MOVE_ULTRASHOT 1
+  push %1
+  call move_ultrashot
+  add esp, 4
+%endmacro
+
+%endif
